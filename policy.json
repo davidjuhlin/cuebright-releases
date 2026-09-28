@@ -1,7 +1,7 @@
 {
-  "latest_version": "0.3.6",
+  "latest_version": "0.3.7",
   "min_supported_version": "0.2.0",
   "release_notes_url": "https://github.com/davidjuhlin/cuebright-releases/releases/latest",
-  "download_url": "https://github.com/davidjuhlin/cuebright-releases/releases/download/v0.3.6/Cuebright-0.3.6.zip",
-  "sha256": "d382a76da79da0112889d9b98db6705b5f433a2aebc93ff965da1fc648554f1b"
+  "download_url": "https://github.com/davidjuhlin/cuebright-releases/releases/download/v0.3.7/Cuebright-0.3.7.zip",
+  "sha256": "729f8df967b70b74a5ecbba34f96ce9e224f4f17595028c41ed7d6cf4edc519e"
 }
