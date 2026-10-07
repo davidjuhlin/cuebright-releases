@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cuebright</title>
+<meta name="description" content="Cuebright records and transcribes your calls on your Mac, answers questions from your own documents while you talk, and writes the summary and action items afterwards.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: left-aligned hero beside a live-call panel; three plain feature columns; a requirements sheet set like a spec label. */
+:root {
+  --bg: #fbfbfc; --surface: #ffffff; --surface-2: #eceef1; --border: #e4e5ea;
+  --text: #1c1e26; --text-2: #5f6370; --accent: #2454e6; --accent-hover: #1a3fb8;
+  --accent-wash: #e8edfc; --live: #e5352b; --success: #1f9254; --success-wash: #e6f4ec;
+  --font-display: "Bricolage Grotesque", "SF Pro Display", -apple-system, system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", -apple-system, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --step-0: 1rem; --step-1: 1.25rem; --step-2: 1.6rem; --step-3: clamp(2.2rem, 5vw, 3.5rem);
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #1c1e22; --surface: #24262b; --surface-2: #2c2e34; --border: #33353c;
+  --text: #eef0f3; --text-2: #a3a7b0; --accent: #6b8ff5; --accent-hover: #8ba7f7;
+  --accent-wash: #1c2b52; --live: #f0554b; --success: #34b374; --success-wash: #163524; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #1c1e22; --surface: #24262b; --surface-2: #2c2e34; --border: #33353c;
+  --text: #eef0f3; --text-2: #a3a7b0; --accent: #6b8ff5; --accent-hover: #8ba7f7;
+  --accent-wash: #1c2b52; --live: #f0554b; --success: #34b374; --success-wash: #163524; color-scheme: dark }
+
+body { background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: var(--step-0); line-height: 1.6; }
+.wrap { max-width: 68rem; margin: 0 auto; padding-inline: max(16px, 4vw); }
+a { color: var(--accent); }
+a:hover { color: var(--accent-hover); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; line-height: 1.1; margin: 0; }
+p { margin: 0; }
+
+header.top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: 1.25rem; }
+.wordmark { font-family: var(--font-display); font-weight: 700; font-size: var(--step-1); letter-spacing: -0.01em; display: flex; align-items: center; gap: .5rem; }
+.wordmark .dot { width: .7rem; height: .7rem; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px var(--accent-wash); }
+.top nav { display: flex; gap: 1.25rem; font-size: .9rem; flex-wrap: wrap; }
+.top nav a { color: var(--text-2); text-decoration: none; }
+.top nav a:hover { color: var(--text); }
+
+.hero { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; padding-block: clamp(2rem, 6vw, 4.5rem); }
+.hero > * { min-width: 0; }
+.hero h1 { font-size: var(--step-3); font-weight: 700; letter-spacing: -0.025em; }
+.hero h1 em { font-style: normal; color: var(--accent); }
+.lede { margin-top: 1.25rem; font-size: var(--step-1); color: var(--text-2); max-width: 34rem; line-height: 1.5; }
+.cta { margin-top: 2rem; display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.25rem; }
+.btn { display: inline-flex; align-items: center; gap: .6rem; background: var(--accent); color: #fff; font-weight: 600; text-decoration: none; padding: .85rem 1.3rem; border-radius: 10px; transition: background .15s; }
+.btn:hover { background: var(--accent-hover); color: #fff; }
+.btn svg { width: 1.1rem; height: 1.1rem; }
+.cta small { color: var(--text-2); font-size: .85rem; line-height: 1.45; }
+
+/* The live panel: the product's own moment, rendered as UI */
+.panel { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; box-shadow: 0 1px 2px rgba(20,30,60,.06), 0 18px 40px -18px rgba(20,40,110,.28); overflow: hidden; }
+.panel-bar { display: flex; align-items: center; justify-content: space-between; gap: .75rem; padding: .7rem 1rem; border-bottom: 1px solid var(--border); font-size: .8rem; color: var(--text-2); }
+.rec { display: flex; align-items: center; gap: .45rem; font-weight: 600; color: var(--live); font-variant-numeric: tabular-nums; }
+.rec i { width: .55rem; height: .55rem; border-radius: 50%; background: var(--live); animation: pulse 1.6s ease-in-out infinite; }
+@keyframes pulse { 50% { opacity: .35; } }
+.ratio { display: flex; align-items: center; gap: .5rem; }
+.ratio-track { width: 6.5rem; height: .4rem; border-radius: 99px; background: var(--surface-2); overflow: hidden; display: flex; }
+.ratio-track b { width: 41%; background: var(--accent); }
+.transcript { padding: .9rem 1rem .4rem; display: grid; gap: .55rem; font-family: var(--font-mono); font-size: .8rem; line-height: 1.5; }
+.line { display: grid; grid-template-columns: 2.6rem 3rem 1fr; gap: .5rem; }
+.line > * { min-width: 0; }
+.t { color: var(--text-2); font-variant-numeric: tabular-nums; }
+.who { color: var(--text-2); }
+.line.q .said { background: var(--accent-wash); border-radius: 4px; padding: 0 .25rem; margin-left: -.25rem; }
+.answer { margin: .4rem 1rem 1rem; border: 1px solid var(--border); border-radius: 10px; padding: .85rem .95rem; background: var(--bg); display: grid; gap: .45rem; }
+.answer-head { display: flex; justify-content: space-between; align-items: center; gap: .5rem; font-size: .75rem; text-transform: uppercase; letter-spacing: .06em; color: var(--text-2); }
+.pill { text-transform: none; letter-spacing: 0; font-weight: 600; color: var(--success); background: var(--success-wash); padding: .1rem .5rem; border-radius: 99px; }
+.answer p { font-size: .95rem; line-height: 1.45; }
+.source { font-size: .78rem; color: var(--text-2); display: flex; gap: .35rem; align-items: center; }
+.example { font-size: .72rem; color: var(--text-2); padding: 0 1rem .8rem; font-family: var(--font-mono); letter-spacing: .04em; }
+.source svg { width: .85rem; height: .85rem; flex: none; }
+
+section.features { padding-block: clamp(2.5rem, 6vw, 4rem); border-top: 1px solid var(--border); }
+.features h2, .reqs h2, .privacy h2, .install h2 { font-size: var(--step-2); font-weight: 700; letter-spacing: -0.015em; }
+.cols { margin-top: 2rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem 2.5rem; }
+.cols > * { min-width: 0; }
+.cols h3 { font-size: var(--step-1); font-weight: 500; margin-bottom: .6rem; }
+.cols p { color: var(--text-2); max-width: 36ch; }
+.cols ul { margin: .75rem 0 0; padding-left: 1.1rem; color: var(--text-2); display: grid; gap: .3rem; font-size: .95rem; }
+.eyebrow { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin-bottom: .5rem; display: block; }
+
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4rem); padding-block: clamp(2.5rem, 6vw, 4rem); border-top: 1px solid var(--border); }
+.split > * { min-width: 0; }
+.privacy p { margin-top: 1rem; color: var(--text-2); max-width: 60ch; }
+.privacy p strong { color: var(--text); font-weight: 600; }
+
+.spec { margin-top: 1.25rem; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); overflow: hidden; }
+.spec dl { margin: 0; display: grid; grid-template-columns: minmax(7rem, auto) 1fr; }
+.spec dt, .spec dd { margin: 0; padding: .75rem 1rem; border-top: 1px solid var(--border); }
+.spec dt { font-family: var(--font-mono); font-size: .75rem; text-transform: uppercase; letter-spacing: .06em; color: var(--text-2); padding-top: .9rem; }
+.spec dd { font-size: .95rem; }
+.spec dl > :nth-child(1), .spec dl > :nth-child(2) { border-top: 0; }
+.spec dd span { display: block; color: var(--text-2); font-size: .85rem; margin-top: .15rem; }
+
+.install ol { margin: 1.25rem 0 0; padding: 0; list-style: none; counter-reset: s; display: grid; gap: .9rem; }
+.install li { counter-increment: s; display: grid; grid-template-columns: 2rem 1fr; gap: .75rem; align-items: baseline; color: var(--text-2); }
+.install li::before { content: counter(s); font-family: var(--font-mono); font-size: .8rem; color: var(--accent); border: 1px solid var(--border); border-radius: 50%; width: 1.7rem; height: 1.7rem; display: grid; place-items: center; }
+.install li strong { color: var(--text); font-weight: 600; }
+
+footer { border-top: 1px solid var(--border); padding-block: 1.75rem 2.5rem; color: var(--text-2); font-size: .85rem; display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; justify-content: space-between; }
+
+@media (max-width: 860px) {
+  .hero, .split { grid-template-columns: 1fr; }
+  .cols { grid-template-columns: 1fr; }
+}
+@media (max-width: 420px) {
+  .line { grid-template-columns: 2.4rem 1fr; }
+  .line .who { display: none; }
+  .ratio-track { width: 4.5rem; }
+}
+@media (prefers-reduced-motion: reduce) { .rec i { animation: none; } .btn { transition: none; } }
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="wordmark"><span class="dot" aria-hidden="true"></span>Cuebright</div>
+    <nav aria-label="Page sections">
+      <a href="#how">How it works</a>
+      <a href="#privacy">Privacy</a>
+      <a href="#requirements">Requirements</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div>
+        <h1 id="hero-title">The answer is in your documents. <em>Cuebright finds it while you're still on the call.</em></h1>
+        <p class="lede">Cuebright transcribes your calls on your Mac, answers questions from the documents you give it while you talk, and writes the summary and action items when you hang up. Nothing leaves your computer.</p>
+        <div class="cta">
+          <a class="btn" href="https://pub-6f7519a283f740d1bd2668c6f7b8cf5c.r2.dev/Cuebright-Installer-0.4.0.pkg">
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 3v10m0 0 4-4m-4 4-4-4M4 16h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Download for Mac
+          </a>
+          <small>Version 0.4.0 · 4.9 GB installer<br>Apple silicon, macOS 13 or later</small>
+        </div>
+      </div>
+
+      <figure class="panel" aria-label="Example: Cuebright during a call">
+        <div class="panel-bar">
+          <span class="rec"><i aria-hidden="true"></i>Recording 18:42</span>
+          <span class="ratio">You 41%<span class="ratio-track" aria-hidden="true"><b></b></span></span>
+        </div>
+        <div class="transcript">
+          <div class="line"><span class="t">18:21</span><span class="who">You</span><span class="said">So the rollout would start with your two warehouses in Ohio.</span></div>
+          <div class="line"><span class="t">18:30</span><span class="who">Them</span><span class="said">Makes sense. We'd want our data kept in the EU, though.</span></div>
+          <div class="line q"><span class="t">18:36</span><span class="who">Them</span><span class="said">Is EU hosting available on the Growth plan?</span></div>
+        </div>
+        <div class="answer">
+          <div class="answer-head">Answer from your documents <span class="pill">High confidence</span></div>
+          <p>No. EU data residency (Frankfurt) is included on Fleet Enterprise only. Growth customers are hosted in the US.</p>
+          <div class="source">
+            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 2h5l3 3v9H4z M9 2v3h3" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+            Security and Data Retention.pdf
+          </div>
+        </div>
+        <figcaption class="example">Example call and documents</figcaption>
+      </figure>
+    </section>
+
+    <section class="features" id="how" aria-labelledby="how-title">
+      <h2 id="how-title">How it works</h2>
+      <div class="cols">
+        <div>
+          <span class="eyebrow">During the call</span>
+          <h3>Answers while you talk</h3>
+          <p>Cuebright transcribes both sides of the call as it happens. When a question comes up, it finds the answer in your documents and shows you where it came from.</p>
+          <ul>
+            <li>Works with any call app on your Mac: Zoom, Google Meet, Teams and more</li>
+            <li>Says plainly when your documents don't cover something</li>
+            <li>A talk-ratio meter shows how much you're speaking</li>
+          </ul>
+        </div>
+        <div>
+          <span class="eyebrow">After the call</span>
+          <h3>Summary and next steps</h3>
+          <p>When the call ends, Cuebright writes a summary and pulls out the action items. Send any of them to Reminders with one click.</p>
+          <ul>
+            <li>Full transcript, searchable later</li>
+            <li>Or "Summary only": the transcript is erased once the summary is written</li>
+            <li>Notes and meetings grouped by account</li>
+          </ul>
+        </div>
+        <div>
+          <span class="eyebrow">Your documents</span>
+          <h3>A knowledge base you control</h3>
+          <p>Add your pricing sheets, product specs, contracts and FAQs. Ask questions any time with ⌘K, or let Cuebright pick them up during calls.</p>
+          <ul>
+            <li>PDF, Word, RTF and plain text</li>
+            <li>Every answer names the document it used</li>
+            <li>Imports run in the background and pause during calls</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="split">
+      <section class="privacy" id="privacy" aria-labelledby="privacy-title">
+        <h2 id="privacy-title">Your calls stay on your Mac</h2>
+        <p><strong>Everything runs locally.</strong> Transcription, search and the answer models all run on your Mac. Your audio, transcripts and documents are never uploaded anywhere.</p>
+        <p><strong>Audio is deleted after processing.</strong> Cuebright keeps the transcript, summary and action items, and removes the recording once they're made.</p>
+        <p><strong>Consent comes first.</strong> Before recording starts, Cuebright asks you to confirm the other person knows the call is being recorded. Recording laws differ by place; you're responsible for following the ones that apply to you.</p>
+        <p>Cuebright only goes online to check for updates and to download model updates.</p>
+      </section>
+
+      <section class="reqs" id="requirements" aria-labelledby="req-title">
+        <h2 id="req-title">Requirements</h2>
+        <div class="spec">
+          <dl>
+            <dt>Mac</dt><dd>Apple silicon (M1 or later)<span>Intel Macs aren't supported.</span></dd>
+            <dt>macOS</dt><dd>13 Ventura or later</dd>
+            <dt>Memory</dt><dd>8 GB or more<span>With 16 GB or more, Cuebright downloads a more accurate answer model (about 5 GB) after installing and switches to it automatically.</span></dd>
+            <dt>Disk</dt><dd>About 6 GB free<span>About 11 GB on Macs that get the larger answer model.</span></dd>
+          </dl>
+        </div>
+      </section>
+    </div>
+
+    <section class="install split" aria-labelledby="install-title" style="grid-template-columns:1fr">
+      <div>
+        <h2 id="install-title">Install</h2>
+        <ol>
+          <li><span><strong>Download the installer</strong> with the button above. It's 4.9 GB, so it can take a while.</span></li>
+          <li><span><strong>Open the installer</strong> from your Downloads folder and follow the steps.</span></li>
+          <li><span><strong>Open Cuebright</strong> from Applications. macOS asks for the permissions it needs, such as the microphone.</span></li>
+          <li><span><strong>Add a few documents</strong> to the knowledge base, then start your next call from the Live panel.</span></li>
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>Cuebright 0.4.0</span>
+    <a href="https://github.com/davidjuhlin/cuebright-releases/releases/latest">Release notes</a>
+  </footer>
+</div>
+
+</body>
+</html>
