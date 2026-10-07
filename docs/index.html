@@ -104,6 +104,15 @@ section.features { padding-block: clamp(2.5rem, 6vw, 4rem); border-top: 1px soli
 .install li::before { content: counter(s); font-family: var(--font-mono); font-size: .8rem; color: var(--accent); border: 1px solid var(--border); border-radius: 50%; width: 1.7rem; height: 1.7rem; display: grid; place-items: center; }
 .install li strong { color: var(--text); font-weight: 600; }
 
+.limits { padding-block: clamp(2.5rem, 6vw, 4rem); border-top: 1px solid var(--border); }
+.limits h2 { font-size: var(--step-2); font-weight: 700; letter-spacing: -0.015em; }
+.limits > p { margin-top: .75rem; color: var(--text-2); max-width: 60ch; }
+.limit-list { margin: 1.5rem 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 2.5rem; }
+.limit-list li { padding-block: .9rem; border-top: 1px solid var(--border); display: grid; gap: .2rem; }
+.limit-list strong { font-weight: 600; }
+.limit-list span { color: var(--text-2); font-size: .95rem; }
+@media (max-width: 860px) { .limit-list { grid-template-columns: 1fr; } }
+
 footer { border-top: 1px solid var(--border); padding-block: 1.75rem 2.5rem; color: var(--text-2); font-size: .85rem; display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; justify-content: space-between; }
 
 @media (max-width: 860px) {
@@ -126,6 +135,7 @@ footer { border-top: 1px solid var(--border); padding-block: 1.75rem 2.5rem; col
     <nav aria-label="Page sections">
       <a href="#how">How it works</a>
       <a href="#privacy">Privacy</a>
+      <a href="#limits">Good to know</a>
       <a href="#requirements">Requirements</a>
     </nav>
   </header>
@@ -136,11 +146,11 @@ footer { border-top: 1px solid var(--border); padding-block: 1.75rem 2.5rem; col
         <h1 id="hero-title">The answer is in your documents. <em>Cuebright finds it while you're still on the call.</em></h1>
         <p class="lede">Cuebright transcribes your calls on your Mac, answers questions from the documents you give it while you talk, and writes the summary and action items when you hang up. Nothing leaves your computer.</p>
         <div class="cta">
-          <a class="btn" href="https://pub-6f7519a283f740d1bd2668c6f7b8cf5c.r2.dev/Cuebright-Installer-0.4.0.pkg">
+          <a class="btn" href="https://pub-6f7519a283f740d1bd2668c6f7b8cf5c.r2.dev/Cuebright-Installer-0.4.1.pkg">
             <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 3v10m0 0 4-4m-4 4-4-4M4 16h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             Download for Mac
           </a>
-          <small>Version 0.4.0 · 4.9 GB installer<br>Apple silicon, macOS 13 or later</small>
+          <small>Version 0.4.1 · 4.9 GB installer<br>Apple silicon, macOS 13 or later</small>
         </div>
       </div>
 
@@ -224,6 +234,20 @@ footer { border-top: 1px solid var(--border); padding-block: 1.75rem 2.5rem; col
       </section>
     </div>
 
+
+    <section class="limits" id="limits" aria-labelledby="limits-title">
+      <h2 id="limits-title">Good to know</h2>
+      <p>Cuebright is early software. Here is what it doesn't do yet.</p>
+      <ul class="limit-list">
+        <li><strong>Built for one-on-one calls</strong><span>The transcript labels two sides, you and them. If several people join from the other end, they all appear as one speaker.</span></li>
+        <li><strong>English only</strong><span>Transcription and answers work in English. Other languages, and loud background noise, can come out as made-up English text.</span></li>
+        <li><strong>Headphones recommended</strong><span>With speakers, your microphone also hears the other person. Cuebright filters most of it, but a few stray words can appear in your side of the transcript, and words can be missed when you talk over each other. Headphones give the cleanest transcript; you can switch call audio to them from the Live panel.</span></li>
+        <li><strong>Calls up to about two hours</strong><span>Longer calls aren't tested yet. The summary and action items arrive a few minutes after the call ends; longer calls take longer.</span></li>
+        <li><strong>Answers come only from your documents</strong><span>Cuebright doesn't search the web. When your documents don't cover a question, it says so. Answers can still be wrong, so check anything important against the source document it names.</span></li>
+        <li><strong>8 GB Macs use a lighter answer model</strong><span>Answers are a little less accurate than on 16 GB Macs. When Cuebright isn't sure an answer fits your question, it labels it "May not answer your question".</span></li>
+      </ul>
+    </section>
+
     <section class="install split" aria-labelledby="install-title" style="grid-template-columns:1fr">
       <div>
         <h2 id="install-title">Install</h2>
@@ -238,7 +262,7 @@ footer { border-top: 1px solid var(--border); padding-block: 1.75rem 2.5rem; col
   </main>
 
   <footer>
-    <span>Cuebright 0.4.0</span>
+    <span>Cuebright 0.4.1</span>
     <a href="https://github.com/davidjuhlin/cuebright-releases/releases/latest">Release notes</a>
   </footer>
 </div>
