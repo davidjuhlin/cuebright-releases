@@ -34,6 +34,9 @@ a:hover { color: var(--accent-hover); }
 h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; line-height: 1.1; margin: 0; }
 p { margin: 0; }
 
+.alpha-banner { margin-top: 12px; padding: .6rem 1rem; border: 1px solid var(--border); border-radius: 10px; background: var(--accent-wash); color: var(--text); font-size: .9rem; line-height: 1.45; }
+.alpha-banner strong { color: var(--accent); font-weight: 600; margin-right: .35rem; }
+.alpha-banner a { color: var(--accent); }
 header.top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: 1.25rem; }
 .wordmark { font-family: var(--font-display); font-weight: 700; font-size: var(--step-1); letter-spacing: -0.01em; display: flex; align-items: center; gap: .5rem; }
 .wordmark .dot { width: .7rem; height: .7rem; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px var(--accent-wash); }
@@ -128,12 +131,13 @@ footer { border-top: 1px solid var(--border); padding-block: 1.75rem 2.5rem; col
 </head>
 <body>
 <div class="wrap">
+  <div class="alpha-banner" role="note"><strong>Alpha</strong>Cuebright is early, unfinished software that's still being built. Expect rough edges and missing features. <a href="#limits">See current limits</a>.</div>
   <header class="top">
     <div class="wordmark"><span class="dot" aria-hidden="true"></span>Cuebright</div>
     <nav aria-label="Page sections">
       <a href="#how">How it works</a>
       <a href="#privacy">Privacy</a>
-      <a href="#limits">Good to know</a>
+      <a href="#limits">Limits</a>
       <a href="#requirements">Requirements</a>
     </nav>
   </header>
@@ -235,8 +239,8 @@ footer { border-top: 1px solid var(--border); padding-block: 1.75rem 2.5rem; col
 
 
     <section class="limits" id="limits" aria-labelledby="limits-title">
-      <h2 id="limits-title">Good to know</h2>
-      <p>Cuebright is early software. Here is what it doesn't do yet.</p>
+      <h2 id="limits-title">Current limits</h2>
+      <p>Cuebright is early software. Here are its current limits.</p>
       <ul class="limit-list">
         <li><strong>Built for one-on-one calls</strong><span>The transcript labels two sides, you and them. If several people join from the other end, they all appear as one speaker.</span></li>
         <li><strong>English only</strong><span>Transcription and answers work in English. Other languages, and loud background noise, can come out as made-up English text.</span></li>
