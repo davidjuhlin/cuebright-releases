@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cuebright Data Details</title>
+<meta name="description" content="Release-specific details on what Cuebright stores on your Mac, what it connects to and how to remove it.">
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+/* Layout: one reading column with a summary box up top; same tokens as the Cuebright landing page. */
+:root {
+  --bg: #fbfbfc; --surface: #ffffff; --border: #e4e5ea; --text: #1c1e26; --text-2: #5f6370;
+  --accent: #2454e6; --accent-wash: #e8edfc; --todo: #8a5a00; --todo-wash: #fbf0dd;
+  --font-display: "Bricolage Grotesque", -apple-system, system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", -apple-system, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #1c1e22; --surface: #24262b; --border: #33353c; --text: #eef0f3; --text-2: #a3a7b0;
+  --accent: #6b8ff5; --accent-wash: #1c2b52; --todo: #e8b65a; --todo-wash: #3a2c10; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #1c1e22; --surface: #24262b; --border: #33353c; --text: #eef0f3; --text-2: #a3a7b0;
+  --accent: #6b8ff5; --accent-wash: #1c2b52; --todo: #e8b65a; --todo-wash: #3a2c10; color-scheme: dark }
+body { background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 1rem; line-height: 1.65; }
+.wrap { max-width: 44rem; margin: 0 auto; padding-inline: max(16px, 4vw); padding-block: 1.5rem 4rem; }
+a { color: var(--accent); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+.top { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+.wordmark { font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; text-decoration: none; color: var(--text); display: flex; align-items: center; gap: .5rem; }
+.wordmark .dot { width: .65rem; height: .65rem; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px var(--accent-wash); }
+.top nav { display: flex; gap: 1.1rem; font-size: .9rem; }
+.top nav a { color: var(--text-2); text-decoration: none; }
+h1 { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 2.6rem); line-height: 1.1; letter-spacing: -0.02em; margin: 0; text-wrap: balance; }
+.meta { font-family: var(--font-mono); font-size: .78rem; color: var(--text-2); margin-top: .75rem; }
+.draft { margin-top: 1.25rem; padding: .8rem 1rem; border-radius: 10px; background: var(--todo-wash); color: var(--todo); font-size: .9rem; }
+.summary { margin-top: 2rem; padding: 1.1rem 1.25rem; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); }
+.summary h2 { margin-top: 0; }
+.summary ul { margin: .5rem 0 0; padding-left: 1.2rem; display: grid; gap: .35rem; }
+h2 { font-family: var(--font-display); font-size: 1.35rem; letter-spacing: -0.01em; margin: 2.5rem 0 .6rem; text-wrap: balance; }
+h3 { font-size: 1rem; margin: 1.5rem 0 .3rem; }
+p, li { color: var(--text); }
+p { margin: .6rem 0; }
+ul { padding-left: 1.2rem; }
+li { margin: .25rem 0; }
+mark.todo { background: var(--todo-wash); color: var(--todo); padding: 0 .3rem; border-radius: 4px; font-weight: 500; }
+.table-wrap { overflow-x: auto; margin: .8rem 0; }
+table { border-collapse: collapse; width: 100%; font-size: .92rem; }
+th, td { text-align: left; padding: .55rem .7rem; border-top: 1px solid var(--border); vertical-align: top; }
+th { font-family: var(--font-mono); font-size: .72rem; text-transform: uppercase; letter-spacing: .06em; color: var(--text-2); font-weight: 500; }
+code { font-family: var(--font-mono); font-size: .85em; background: var(--accent-wash); padding: .05rem .3rem; border-radius: 4px; }
+footer { margin-top: 3rem; padding-top: 1.25rem; border-top: 1px solid var(--border); color: var(--text-2); font-size: .85rem; display: flex; gap: 1.25rem; flex-wrap: wrap; }
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="wordmark" href="./"><span class="dot" aria-hidden="true"></span>Cuebright</a>
+    <nav aria-label="Legal"><a href="privacy.html">Privacy</a><a href="terms.html">Terms of Use</a><a href="data.html" aria-current="page">Data details</a></nav>
+  </header>
+
+  <main>
+    <h1>Data Details</h1>
+    <p class="meta">Release covered: 0.4.2 | Details version 1.0 | Updated: October 9, 2026</p>
+
+    <p>This page explains the release’s data handling and complements the Privacy Notice. It does not authorize new processing or change your contract.</p>
+    <h2 id="local-ai-and-speech-processing">Local AI and speech processing</h2>
+    <p>Transcription, summaries and document answers run on your Mac. The App does not send meeting audio, transcripts, documents, questions or answers to the Company or cloud AI to perform these functions. The one-on-one transcript uses the microphone and call-audio channels for “You” and “Them.” Silero VAD detects speech; it does not identify speakers or generate speaker embeddings. Speaker recognition and cross-meeting voice matching are not features of this release.</p>
+    <h2 id="what-is-saved-and-when-it-is-removed">What is saved and when it is removed</h2>
+    <p>Meetings store transcripts and generated summaries, notes and action items. Imported documents have local copies and search data. Connected folders contribute extracted text and search data, but the App does not write into those source folders. Local accounts and contacts organize your information; they are not online sign-in accounts. Ask questions and live answers are not intentionally saved as conversation history unless you save or export them.</p>
+    <p>Audio remains while transcription is pending or running and is removed when transcription completes, including if summary generation subsequently fails. Interrupted transcription can retain audio until resumed or manually removed. Temporary working files are removed after use, with leftover cleanup on a later launch. These processes cannot run while the App stays closed. Deletion means ordinary file removal, not guaranteed secure erasure.</p>
+    <p>Delete meetings, accounts and contacts through the App. Removing a contact or account does not necessarily remove its name from other records. Remove imported documents or disconnect folders to remove their associated App copies or search data. Source-folder changes take effect when detected and processed; network-drive changes may wait until next launch.</p>
+    <h2 id="storage-locations">Storage locations</h2>
+    <p>Most content: <code>~/Library/Application Support/Cuebright</code>. Pending audio: <code>session-recordings/&lt;id&gt;/</code> beneath that folder.</p>
+    <p>Preferences and acceptance records use macOS preferences. The user’s macOS temporary directory may contain <code>cuebright-whisper-*</code> transcript working files and <code>cuebright-vad-*</code>, <code>cuebright-live-*</code> or <code>cuebright-setup-test-*</code> audio working files. The temporary directory varies by macOS user. Do not remove unrelated temporary files.</p>
+    <p>The App does not separately encrypt its stored content. Protect your macOS account and consider FileVault. Pending recording folders are marked for exclusion from Time Machine; that does not control other backup tools. Deleting the App alone does not delete its data. Exports, backups, source files, email and synchronized reminders require separate handling.</p>
+    <h2 id="connected-folders-and-apple-services">Connected folders and Apple services</h2>
+    <p>You may connect local, cloud-synced or network folders that macOS permits you to select. Cuebright may trigger download of online-only files so it can read them. Your storage provider continues its own synchronization independently. Cuebright does not upload source-folder files.</p>
+    <p>Calendar titles and attendees are read to show upcoming meetings and are not saved in meeting records. Sending an action item to Reminders is your action; the configured account may synchronize it. macOS permissions can be changed in System Settings. Audio capture permission does not mean Cuebright records screen images.</p>
+    <h2 id="optional-setup-checks">Optional setup checks</h2>
+    <p>Microphone: captures audio to a temporary file and measures volume until Stop or leaving the step. No transcription. Speakers and call audio: plays a generated chime and captures only that chime, without microphone input. Each starts only when selected. Interrupted microphone-test files are cleaned up at next launch.</p>
+    <h2 id="connections-and-providers">Connections and providers</h2>
+    <p>GitHub delivers the website, update policy checks and app updates. Cloudflare delivers installers and model files. These requests expose IP addresses and technical request metadata to those providers, but the App does not place meeting or document content in them. Update checks occur at launch and periodically, approximately daily, after acceptance. Updates and needed models may download in the background. DNS, operating-system services, browsers and your selected integrations can make their own network requests.</p>
+    <p>Namecheap Private Email delivers and stores support emails sent to <a href="mailto:info@backyardbeertaps.com">info@backyardbeertaps.com</a>. Sending content to support is an external disclosure. Use synthetic or redacted examples and do not send recordings, complete transcripts, confidential documents or credentials.</p>
+    <p>Provider privacy information: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement</a>; <a href="https://www.cloudflare.com/privacypolicy/">https://www.cloudflare.com/privacypolicy/</a>; <a href="https://www.namecheap.com/legal/general/privacy-policy/">https://www.namecheap.com/legal/general/privacy-policy/</a>. These notices do not replace the Company’s duties for processing performed on its behalf.</p>
+    <p>This release has no online Cuebright account, payment collection, optional usage analytics, automatic app crash submission, cloud AI or CRM connection. Models and third-party license notices appear in About Cuebright → Credits and <a href="https://cuebright.com/licenses.html">https://cuebright.com/licenses.html</a>.</p>
+    <h2 id="updates">Updates</h2>
+    <p>A required update limits new recording while preserving existing-meeting access and Markdown export in this release. Updated contract terms have a separate acceptance screen. Declining materially revised terms leaves existing-content access available as described in the Terms.</p>
+    <p>Questions or privacy requests: <a href="mailto:info@backyardbeertaps.com">info@backyardbeertaps.com</a> | BACKYARD BEER TAPS LLC, 3350 NW 124th Way, Sunrise, Florida 33323, United States.</p>
+  </main>
+
+  <footer><a href="./">cuebright.com</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms of Use</a><a href="data.html">Data details</a><a href="licenses.html">Licenses</a></footer>
+</div>
+
+</body>
+</html>

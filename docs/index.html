@@ -148,11 +148,11 @@ footer { border-top: 1px solid var(--border); padding-block: 1.75rem 2.5rem; col
         <h1 id="hero-title">The answer is in your documents. <em>Cuebright finds it while you're still on the call.</em></h1>
         <p class="lede">Cuebright transcribes your calls on your Mac, answers questions from the documents you give it while you talk, and writes the summary and action items when you hang up. Your calls and documents stay on your Mac.</p>
         <div class="cta">
-          <a class="btn" href="https://pub-6f7519a283f740d1bd2668c6f7b8cf5c.r2.dev/Cuebright-Installer-0.4.1.pkg">
+          <a class="btn" href="https://pub-6f7519a283f740d1bd2668c6f7b8cf5c.r2.dev/Cuebright-Installer-0.4.2.pkg">
             <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 3v10m0 0 4-4m-4 4-4-4M4 16h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             Download for Mac
           </a>
-          <small>Version 0.4.1 · 4.9 GB installer<br>Apple silicon, macOS 13 or later</small>
+          <small>Version 0.4.2 · 4.8 GB installer<br>Apple silicon, macOS 13 or later</small>
         </div>
       </div>
 
@@ -216,12 +216,13 @@ footer { border-top: 1px solid var(--border); padding-block: 1.75rem 2.5rem; col
 
     <div class="split">
       <section class="privacy" id="privacy" aria-labelledby="privacy-title">
-        <h2 id="privacy-title">Your calls stay on your Mac</h2>
-        <p><strong>Everything runs locally.</strong> Transcription, search and the answer models all run on your Mac. Cuebright doesn't upload your audio, transcripts or documents to us or to any cloud AI.</p>
-        <p><strong>Audio is deleted after processing.</strong> Cuebright keeps the transcript, summary and action items, and removes the recording once they're made. If Cuebright quits mid-way, the recording is kept until processing finishes on the next launch.</p>
-        <p><strong>Consent comes first.</strong> Before recording starts, Cuebright asks you to confirm that everyone on the call has agreed to it. Cuebright doesn't notify them for you. Recording laws differ by place; you're responsible for following the ones that apply to you.</p>
-        <p>Cuebright goes online only to check for updates and to download app and AI-model files. Those requests don't include your calls or documents, but like any download they reveal your IP address to GitHub and Cloudflare, which deliver the files.</p>
-        <p><strong>AI can make mistakes.</strong> Check important answers and summaries against the source.</p>
+        <h2 id="privacy-title">Local AI for your calls and documents</h2>
+        <!-- Counsel's website privacy description (CB-COPY-1.0, 2026-10-09). -->
+        <p>Cuebright processes calls and documents on your Mac. The app does not send their content to us or to cloud AI for transcription, summaries or answers.</p>
+        <p>Your own cloud storage keeps syncing as configured, and connected folders may download online-only files. Update and download requests disclose IP addresses and technical request information to GitHub or Cloudflare. Exports, Reminders and support emails follow the destinations you choose.</p>
+        <p>Audio is removed after transcription completes. Interrupted processing can leave audio on your Mac until processing resumes or you remove it. Saved transcripts and summaries remain until deleted.</p>
+        <p>Obtain everyone’s agreement before recording. AI can make mistakes; review important results.</p>
+        <p><a href="privacy.html">Privacy Notice</a> | <a href="data.html">Data details</a></p>
       </section>
 
       <section class="reqs" id="requirements" aria-labelledby="req-title">
@@ -255,7 +256,7 @@ footer { border-top: 1px solid var(--border); padding-block: 1.75rem 2.5rem; col
       <div>
         <h2 id="install-title">Install</h2>
         <ol>
-          <li><span><strong>Download the installer</strong> with the button above. It's 4.9 GB, so it can take a while.</span></li>
+          <li><span><strong>Download the installer</strong> with the button above. It's 4.8 GB, so it can take a while.</span></li>
           <li><span><strong>Open the installer</strong> from your Downloads folder and follow the steps.</span></li>
           <li><span><strong>Open Cuebright</strong> from Applications. macOS asks for the permissions it needs, such as the microphone.</span></li>
           <li><span><strong>Add a few documents</strong> to the knowledge base, then start your next call from the Live panel.</span></li>
@@ -265,8 +266,8 @@ footer { border-top: 1px solid var(--border); padding-block: 1.75rem 2.5rem; col
   </main>
 
   <footer>
-    <span>Cuebright 0.4.1</span>
-    <span class="footer-links"><a href="https://github.com/davidjuhlin/cuebright-releases/releases/latest">Release notes</a> · <a href="licenses.html">Open-source licenses</a></span>
+    <span>Cuebright 0.4.2</span>
+    <span class="footer-links"><a href="https://github.com/davidjuhlin/cuebright-releases/releases/latest">Release notes</a> · <a href="privacy.html">Privacy Notice</a> · <a href="terms.html">Terms of Use</a> · <a href="data.html">Data details</a> · <a href="licenses.html">Open-source licenses</a></span>
   </footer>
 </div>
 
