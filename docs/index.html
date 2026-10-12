@@ -105,6 +105,21 @@ section.features { padding-block: clamp(2.5rem, 6vw, 4rem); border-top: 1px soli
 .install li::before { content: counter(s); font-family: var(--font-mono); font-size: .8rem; color: var(--accent); border: 1px solid var(--border); border-radius: 50%; width: 1.7rem; height: 1.7rem; display: grid; place-items: center; }
 .install li strong { color: var(--text); font-weight: 600; }
 
+.plans { padding-block: clamp(2.5rem, 6vw, 4rem); border-top: 1px solid var(--border); }
+.plans h2 { font-size: var(--step-2); font-weight: 700; letter-spacing: -0.015em; }
+.plans > p { margin-top: .75rem; color: var(--text-2); max-width: 62ch; }
+.plan-list { margin: 1.5rem 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+.plan { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.1rem 1.15rem; display: grid; gap: .55rem; align-content: start; }
+.plan-head { display: flex; flex-wrap: wrap; gap: .4rem .6rem; align-items: baseline; justify-content: space-between; }
+.plan-head strong { font-size: 1.15rem; }
+.plan p { color: var(--text-2); font-size: .95rem; }
+.tag { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .04em; color: var(--text-2); background: var(--surface-2); border-radius: 999px; padding: .15rem .55rem; }
+.tag.now { color: var(--success); background: var(--success-wash); }
+.roles { margin: 0; padding: 0; list-style: none; display: grid; gap: .35rem; font-size: .92rem; }
+.roles em { font-style: normal; font-family: var(--font-mono); font-size: .72rem; color: var(--text-2); margin-left: .25rem; }
+.plan-note { margin-top: 1rem !important; font-size: .92rem; }
+@media (max-width: 980px) { .plan-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .plan-list { grid-template-columns: 1fr; } }
 .limits { padding-block: clamp(2.5rem, 6vw, 4rem); border-top: 1px solid var(--border); }
 .limits h2 { font-size: var(--step-2); font-weight: 700; letter-spacing: -0.015em; }
 .limits > p { margin-top: .75rem; color: var(--text-2); max-width: 60ch; }
@@ -137,6 +152,7 @@ footer { border-top: 1px solid var(--border); padding-block: 1.75rem 2.5rem; col
     <nav aria-label="Page sections">
       <a href="#how">How it works</a>
       <a href="#privacy">Privacy</a>
+      <a href="#plans">Plans</a>
       <a href="#limits">Limits</a>
       <a href="#requirements">Requirements</a>
     </nav>
@@ -238,6 +254,36 @@ footer { border-top: 1px solid var(--border); padding-block: 1.75rem 2.5rem; col
       </section>
     </div>
 
+
+    <section class="plans" id="plans" aria-labelledby="plans-title">
+      <h2 id="plans-title">Plans</h2>
+      <p>During the alpha, everything that’s available is free. Prices will be announced before the alpha ends, and nothing will be charged without your choice.</p>
+      <ul class="plan-list">
+        <li class="plan">
+          <div class="plan-head"><strong>Free</strong><span class="tag now">Available now</span></div>
+          <p>Everything that runs on your Mac: transcripts of your calls, summaries and action items, and answers from your own documents. Local AI is always free.</p>
+        </li>
+        <li class="plan">
+          <div class="plan-head"><strong>Role</strong><span class="tag">Sales pack in the next update</span></div>
+          <p>Free, plus a pack built for your role. Pick one.</p>
+          <ul class="roles">
+            <li><b>Sales</b>: deal notes, an account deal sheet, follow-up email drafts and talk-ratio coaching. <em>Next update, free preview</em></li>
+            <li><b>Mentoring &amp; coaching</b> <em>Coming</em></li>
+            <li><b>Accounting</b> <em>Coming</em></li>
+            <li><b>Customer success</b> <em>Coming</em></li>
+          </ul>
+        </li>
+        <li class="plan">
+          <div class="plan-head"><strong>Pro</strong><span class="tag">Coming</span></div>
+          <p>Free, plus connections to your files in places like Google Drive, and the option to use cloud AI models such as Claude, GPT or Gemini with your own account.</p>
+        </li>
+        <li class="plan">
+          <div class="plan-head"><strong>Pro Plus</strong><span class="tag">Coming</span></div>
+          <p>Pro plus one role pack, with cloud AI included so there’s nothing to set up.</p>
+        </li>
+      </ul>
+      <p class="plan-note">Cloud AI will always be your choice. Cuebright keeps working fully on your Mac without it.</p>
+    </section>
 
     <section class="limits" id="limits" aria-labelledby="limits-title">
       <h2 id="limits-title">Current limits</h2>
