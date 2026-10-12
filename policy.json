@@ -1,7 +1,15 @@
 {
-  "latest_version": "0.4.4",
+  "latest_version": "0.4.5",
   "min_supported_version": "0.2.0",
   "release_notes_url": "https://github.com/davidjuhlin/cuebright-releases/releases/latest",
-  "download_url": "https://github.com/davidjuhlin/cuebright-releases/releases/download/v0.4.4/Cuebright-0.4.4.zip",
-  "sha256": "91e04499d3ab644a6cfee4be030a3cfaa1743da3aac6a67fa98eba69b0a35b34"
+  "download_url": "https://github.com/davidjuhlin/cuebright-releases/releases/download/v0.4.5/Cuebright-0.4.5.zip",
+  "sha256": "c4c3c8ec417aa475eaddb82136e84623aac0264000e8471ab95cb877d349d348",
+  "releases": [
+    {
+      "version": "0.4.5",
+      "minimum_macos": "14.0",
+      "download_url": "https://github.com/davidjuhlin/cuebright-releases/releases/download/v0.4.5/Cuebright-0.4.5.zip",
+      "sha256": "c4c3c8ec417aa475eaddb82136e84623aac0264000e8471ab95cb877d349d348"
+    }
+  ]
 }
