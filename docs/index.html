@@ -164,11 +164,11 @@ footer { border-top: 1px solid var(--border); padding-block: 1.75rem 2.5rem; col
         <h1 id="hero-title">The answer is in your documents. <em>Cuebright finds it while you're still on the call.</em></h1>
         <p class="lede">Cuebright is a Mac app for your work calls. It transcribes both sides of any call (Zoom, Google Meet, Teams and more) and writes the summary and action items when you hang up. Give it your own documents, like pricing sheets, specs or contracts, and it answers questions from them while you’re still on the call, all privately on your Mac.</p>
         <div class="cta">
-          <a class="btn" href="https://cuebright-download.nilsdavidjuhlin.workers.dev/Cuebright-Installer-0.4.5.pkg">
+          <a class="btn" href="https://cuebright-download.nilsdavidjuhlin.workers.dev/Cuebright-Installer-0.5.0.pkg">
             <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 3v10m0 0 4-4m-4 4-4-4M4 16h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             Download for Mac
           </a>
-          <small>Version 0.4.5 · 4.8 GB installer<br>Apple silicon, macOS 14 or later</small>
+          <small>Version 0.5.0 · 23 MB installer<br>Apple silicon, macOS 15 or later<br>On macOS 14? <a href="https://cuebright-download.nilsdavidjuhlin.workers.dev/Cuebright-Installer-0.4.5.pkg">Download version 0.4.5</a></small>
         </div>
       </div>
 
@@ -203,6 +203,7 @@ footer { border-top: 1px solid var(--border); padding-block: 1.75rem 2.5rem; col
           <p>Cuebright transcribes both sides of the call as it happens. When a question comes up, it finds the answer in your documents and shows you where it came from.</p>
           <ul>
             <li>Works with any call app on your Mac: Zoom, Google Meet, Teams and more</li>
+            <li>Follows the call's language, and answers each question when several come at once</li>
             <li>Says plainly when your documents don't cover something</li>
             <li>A talk-ratio meter shows how much you're speaking</li>
           </ul>
@@ -232,13 +233,11 @@ footer { border-top: 1px solid var(--border); padding-block: 1.75rem 2.5rem; col
 
     <div class="split">
       <section class="privacy" id="privacy" aria-labelledby="privacy-title">
-        <h2 id="privacy-title">Local AI for your calls and documents</h2>
-        <!-- Counsel's website privacy description (CB-COPY-1.0, 2026-10-09). -->
-        <p>Cuebright processes calls and documents on your Mac. The app does not send their content to us or to cloud AI for transcription, summaries or answers.</p>
-        <p>Your own cloud storage keeps syncing as configured, and connected folders may download online-only files. Update and download requests disclose IP addresses and technical request information to GitHub or Cloudflare. Exports, Reminders and support emails follow the destinations you choose.</p>
-        <p>Audio is removed after transcription completes. Interrupted processing can leave audio on your Mac until processing resumes or you remove it. Saved transcripts and summaries remain until deleted.</p>
-        <p>Obtain everyone’s agreement before recording. AI can make mistakes; review important results.</p>
-        <p><a href="privacy.html">Privacy Notice</a> | <a href="data.html">Data details</a></p>
+        <h2 id="privacy-title">Local AI with optional sharing</h2>
+        <!-- Counsel's website copy 1.1 (2026-10-12). -->
+        <p>Cuebright’s local features process calls and documents on your device. If you enable cloud AI, selected text goes to the provider identified before activation. Local features remain available without cloud AI. You can separately choose content-free usage summaries or review and send an individual problem example to us. Availability varies by release.</p>
+        <p>Your cloud storage continues syncing as configured. Downloads disclose network information to delivery providers. Our website download counter stores totals by day and installer version, not individual visitor records. Audio is removed after transcription completes; interruptions can leave audio until recovery or removal. Saved transcripts and summaries remain until deleted. Obtain everyone’s agreement before recording and review important AI outputs.</p>
+        <p><a href="privacy.html">Privacy Notice</a> | <a href="data.html">Data details</a> | <a href="terms.html">Terms</a></p>
       </section>
 
       <section class="reqs" id="requirements" aria-labelledby="req-title">
@@ -247,8 +246,8 @@ footer { border-top: 1px solid var(--border); padding-block: 1.75rem 2.5rem; col
           <dl>
             <dt>Mac</dt><dd>Apple silicon (M1 or later)<span>Intel Macs aren't supported.</span></dd>
             <dt>macOS</dt><dd>14 Sonoma or later</dd>
-            <dt>Memory</dt><dd>8 GB or more<span>With 16 GB or more, Cuebright downloads a more accurate answer model (about 5 GB) after installing and switches to it automatically.</span></dd>
-            <dt>Disk</dt><dd>About 10 GB free to install<span>About 5 GB once installed, after you delete the installer. About 10 GB on Macs that get the larger answer model.</span></dd>
+            <dt>Memory</dt><dd>8 GB or more<span>With 16 GB or more, Cuebright uses a more accurate answer model.</span></dd>
+            <dt>Disk</dt><dd>About 5 GB free<span>After you install it, Cuebright downloads its AI models: about 4.5 GB, or about 7 GB on Macs with 16 GB or more, which get the more accurate answer model.</span></dd>
           </dl>
         </div>
       </section>
@@ -290,11 +289,11 @@ footer { border-top: 1px solid var(--border); padding-block: 1.75rem 2.5rem; col
       <p>Cuebright is early software. Here are its current limits.</p>
       <ul class="limit-list">
         <li><strong>Built for one-on-one calls</strong><span>The transcript labels two sides, you and them. If several people join from the other end, they all appear as one speaker.</span></li>
-        <li><strong>English only</strong><span>Transcription and answers work in English. Other languages, and loud background noise, can come out as made-up English text.</span></li>
+        <li><strong>Ten call languages</strong><span>English, Swedish, Norwegian, Danish, Finnish, German, French, Spanish, Portuguese and Italian. Transcripts stay in the language that was spoken; nothing is translated. Answers come in the language of the question. English and Swedish are the most tested. Loud background noise can still come out as made-up text.</span></li>
         <li><strong>Headphones recommended</strong><span>With speakers, your microphone also hears the other person. Cuebright filters most of it, but a few stray words can appear in your side of the transcript, and words can be missed when you talk over each other. Headphones give the cleanest transcript; you can switch call audio to them from the Live panel.</span></li>
         <li><strong>Calls up to about two hours</strong><span>Longer calls aren't tested yet. The summary and action items arrive a few minutes after the call ends; longer calls take longer.</span></li>
         <li><strong>Answers come only from your documents</strong><span>Cuebright doesn't search the web. When your documents don't cover a question, it says so. Answers can still be wrong, so check anything important against the source document it names.</span></li>
-        <li><strong>8 GB Macs use a lighter answer model</strong><span>Answers are a little less accurate than on 16 GB Macs. When Cuebright isn't sure an answer fits your question, it labels it "May not answer your question".</span></li>
+        <li><strong>8 GB Macs use a lighter answer model</strong><span>Answers are a little less accurate than on 16 GB Macs. When Cuebright isn't sure an answer fits your question, it says it couldn't find a direct answer and keeps the closest information one click away.</span></li>
       </ul>
     </section>
 
@@ -302,9 +301,9 @@ footer { border-top: 1px solid var(--border); padding-block: 1.75rem 2.5rem; col
       <div>
         <h2 id="install-title">Install</h2>
         <ol>
-          <li><span><strong>Download the installer</strong> with the button above. It's 4.8 GB, so it can take a while.</span></li>
+          <li><span><strong>Download the installer</strong> with the button above.</span></li>
           <li><span><strong>Open the installer</strong> from your Downloads folder and follow the steps.</span></li>
-          <li><span><strong>Open Cuebright</strong> from Applications. macOS asks for the permissions it needs, such as the microphone.</span></li>
+          <li><span><strong>Open Cuebright</strong> from Applications. After you accept the terms, it downloads its AI models (4.5 to 7 GB) in the background while you finish setting up. macOS asks for the permissions it needs, such as the microphone.</span></li>
           <li><span><strong>Add a few documents</strong> to the knowledge base, then start your next call from the Live panel.</span></li>
         </ol>
       </div>
@@ -312,7 +311,7 @@ footer { border-top: 1px solid var(--border); padding-block: 1.75rem 2.5rem; col
   </main>
 
   <footer>
-    <span>Cuebright 0.4.5</span>
+    <span>Cuebright 0.5.0</span>
     <span class="footer-links"><a href="https://github.com/davidjuhlin/cuebright-releases/releases/latest">Release notes</a> · <a href="privacy.html">Privacy Notice</a> · <a href="terms.html">Terms of Use</a> · <a href="data.html">Data details</a> · <a href="licenses.html">Open-source licenses</a></span>
   </footer>
 </div>
