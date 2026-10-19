@@ -10,6 +10,12 @@
       "minimum_macos": "14.0",
       "download_url": "https://github.com/davidjuhlin/cuebright-releases/releases/download/v0.4.5/Cuebright-0.4.5.zip",
       "sha256": "c4c3c8ec417aa475eaddb82136e84623aac0264000e8471ab95cb877d349d348"
+    },
+    {
+      "version": "0.5.0",
+      "minimum_macos": "15.0",
+      "download_url": "https://github.com/davidjuhlin/cuebright-releases/releases/download/v0.5.0/Cuebright-0.5.0.zip",
+      "sha256": "c25a535760c8eb3070f1d83c89375e16c7ec9d61c9ff8b8cf83133a42a768281"
     }
   ]
 }
