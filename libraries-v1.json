@@ -1,0 +1,14 @@
+[
+  {
+    "id": "us-federal-tax",
+    "title": "US federal tax (IRS)",
+    "subtitle": "55 IRS publications and form instructions, current editions",
+    "version": "2026-10-22",
+    "url": "https://pub-6f7519a283f740d1bd2668c6f7b8cf5c.r2.dev/libraries/us-federal-tax-v1.zip",
+    "bytes": 148277627,
+    "sha256": "f1978779a17b8b1eb546913b6abd79a973e701dc6409a7033a22738854a3659d",
+    "documents": 55,
+    "asOf": "2026-10-22",
+    "notice": "Reference material copied from IRS.gov, not tax advice. Editions as of October 22, 2026; check IRS.gov for later changes. Each answer shows the publication and edition it came from."
+  }
+]
