@@ -2,13 +2,15 @@
   {
     "id": "us-federal-tax",
     "title": "US federal tax (IRS)",
-    "subtitle": "55 IRS publications and form instructions, current editions",
-    "version": "2026-10-22",
-    "url": "https://pub-6f7519a283f740d1bd2668c6f7b8cf5c.r2.dev/libraries/us-federal-tax-v1.zip",
-    "bytes": 148277627,
-    "sha256": "f1978779a17b8b1eb546913b6abd79a973e701dc6409a7033a22738854a3659d",
+    "subtitle": "55 IRS publications and form instructions, collected October 22, 2026",
+    "version": "2026-10-22.2",
+    "url": "https://pub-6f7519a283f740d1bd2668c6f7b8cf5c.r2.dev/libraries/us-federal-tax-v2.zip",
+    "bytes": 156760785,
+    "sha256": "e99211517b188e4f33646813ba73189345493dc04024f8a069d6726c2f072cd5",
     "documents": 55,
     "asOf": "2026-10-22",
-    "notice": "Reference material copied from IRS.gov, not tax advice. Editions as of October 22, 2026; check IRS.gov for later changes. Each answer shows the publication and edition it came from."
+    "notice": "See the app's library card for the full notice.",
+    "withdrawnVersions": ["2026-10-22"],
+    "updateNote": "fixes figures misread from lists that PDF conversion had scrambled, and leaves out number tables that didn't convert reliably"
   }
 ]
